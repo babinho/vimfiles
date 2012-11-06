@@ -19,28 +19,11 @@ your old .vim folder and just git clone a new version.
 Clone this repo into your home directory either as .vim (linux/mac) or 
 vimfiles (Windows). Such as:
 
-bc. git clone git://github.com/fabiokung/vimfiles.git ~/.vim
+bc. git clone git://github.com/babinho/vimfiles.git ~/.vim
 
-Then 'cd' into the repo and run this to get the snippets submodule:
+Then 'cd' into the repo and run this to get the stuff set up:
 
-bc. git submodule init
-git submodule update
-
-Now just copy (or symlink) the .vim/vimrc file as .vimrc (Mac/Linux)
-or copy as _vimrc (Windows) in your home directory. In Mac and Linux, the 
-easiest thing to do is:
-
-bc. ln -s ~/.vim/vimrc ~/.vimrc
-
-If you already have a custom .vimrc file, append the following lines to
-load everything else along with your personal hacks:
-
-bc. source ~/.vim/vimrc      "linux
-source ~/vimfiles/vimrc  "windows
-
-As an alternative, you may also have a very small ~/.vimrc file containing:
-
-bc. runtime vimrc
+bc. ./install.sh
 
 h2. Help Tags
 
@@ -67,26 +50,6 @@ On Windows you have to download Ctags and add ctags.exe in your PATH.
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
 
-h1. IMPORTANT: Command-T
-
-The latest version replaces the old Fuzzy Finder with a new one called 
-"Command-T" form wincent.com. I've replaced the old "Command-T" key 
-binding that used to open new tabs and assigned it to this new plugin
-so it behaves the same as Textmate.
-
-You may have problems in Mac/Linux because this plugin requires a native
-extension, so you will have to do this:
-
-bc. cd ~/.vim/bundle/Command-T/ruby/command-t
-ruby extconf.rb
-make
-
-This means that you need to have your Ruby source files and GCC also 
-installed. A binary for Windows is already bundled so it should just
-work. I've also included a binary compiled for Ruby Enterprise Edition,
-but if you are using other Ruby distros, you will need to recompile.
-
-
 h2. Learn Vim
 
 Visit the following sites to learn more about Vim:
@@ -100,5 +63,5 @@ h2. Credits
 
 * Original project and most of the heavy lifting: @scrooloose
 * All the cool plugins for Rails, Cucumber and more: @timpope
-* Great Command-T plugin by: Wincent
+* Hacks and some snippets: @fabiokung
 * Hacks and some snippets: @akitaonrails
