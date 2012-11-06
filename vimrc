@@ -4,8 +4,8 @@
 "This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set backupdir=/tmp,/var/tmp,.,./.backup
-set directory=/tmp,/var/tmp,.,./.backup
+set backupdir=~/tmp,/tmp,/var/tmp,.,./.backup
+set directory=~/tmp,/tmp,/var/tmp,.,./.backup
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -51,58 +51,14 @@ set fo=l
 
 set encoding=utf-8
 
-"statusline setup
-set statusline=%n       "buffer number
-set statusline=%f       "tail of the filename
-
-"display a warning if fileformat isnt unix
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
-
-"display a warning if file encoding isnt utf-8
-set statusline+=%#warningmsg#
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
-
-set statusline+=%h      "help file flag
-set statusline+=%y      "filetype
-set statusline+=%r      "read only flag
-set statusline+=%m      "modified flag
-
-"display a warning if &et is wrong, or we have mixed-indenting
-set statusline+=%#error#
-set statusline+=%{StatuslineTabWarning()}
-set statusline+=%*
-
-set statusline+=%{StatuslineTrailingSpaceWarning()}
-
-set statusline+=%{StatuslineLongLineWarning()}
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-"display a warning if &paste is set
-set statusline+=%#error#
-set statusline+=%{&paste?'[paste]':''}
-set statusline+=%*
-
-set statusline+=\ %{'('.GitBranch().')'}
-
-set statusline+=%=      "left/right separator
-set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
 set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
 
 "indent settings
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 
@@ -255,13 +211,12 @@ let mapleader=","
 if has("gui_running")
     set t_Co=256
     set guitablabel=%M%t
-    colorscheme xoria256
-    "colorscheme railscasts
+    "colorscheme xoria256
+    colorscheme molokai
     "colorscheme mac_classic
 
     if has("gui_gnome")
-        set guifont=Ubuntu\ Mono\ 12
-    else
+        set guifont=Source\ Code\ Pro\ 11
     endif
     if has("gui_mac") || has("gui_macvim")
         set lines=50
@@ -283,7 +238,7 @@ else
     if has("gui")
         set t_Co=256
         set guitablabel=%M%t
-        colorscheme xoria256
+        colorscheme molokai
     endif
 endif
 
@@ -369,11 +324,11 @@ function! SetCursorPosition()
     end
 endfunction
 
-if exists('+colorcolumn')
-    set colorcolumn=+1
-else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+"if exists('+colorcolumn')
+"    set colorcolumn=+1
+"else
+"    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"endif
 
 "define :HighlightLongLines command to highlight the offending parts of
 "lines that are longer than the specified length (defaulting to 80)
@@ -391,7 +346,7 @@ endfunction
 autocmd filetype svn,*commit* setlocal spell
 
 "snipmate settings
-let g:snips_author = "Fabio Kung"
+let g:snips_author = "Berislav Babic"
 
 " minitest
 set completefunc=syntaxcomplete#Complete
@@ -401,3 +356,36 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 let g:gist_post_private = 1
 
+
+" ctags settings
+set tags+=./tags
+set foldlevel=1
+
+nmap <leader><F12> :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
+" fucking Cro keyboard
+nmap <C-q> <C-]>
+" source self if needed
+nmap <leader>s :so $MYVIMRC<CR>
+
+" read ruby tags
+au BufRead,BufNewFile *.rb setlocal tags+=~/.vim/tags/ruby_and_gems
+
+" execute ruby on F5, nice for scripts
+au BufRead,BufNew *.rb map <F5> :!ruby % <CR>
+
+" Make XML pretty
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+nmap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
+
+" ruby hashrocket replace
+nmap rs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g <CR>
+
+"key mapping for window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"key mapping for tab navigation
+nmap <S-Tab> gt
+nmap <C-S-Tab> gT
