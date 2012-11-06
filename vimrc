@@ -389,3 +389,23 @@ map <C-l> <C-w>l
 "key mapping for tab navigation
 nmap <S-Tab> gt
 nmap <C-S-Tab> gT
+
+"Enabling Zencoding
+let g:user_zen_settings = {
+      \  'php' : {
+      \    'extends' : 'html',
+      \    'filters' : 'c',
+      \  },
+      \  'xml' : {
+      \    'extends' : 'html',
+      \  },
+      \  'haml' : {
+      \    'extends' : 'html',
+      \  },
+      \  'erb' : {
+      \    'extends' : 'html',
+      \  },
+      \}
+
+" when press { + Enter, the {} block will expand.
+imap {<CR> {}<ESC>i<CR><ESC>O}
