@@ -1,5 +1,3 @@
-"Fabio Kung <fabio.kung@gmail.com>
-"
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -206,6 +204,21 @@ function! s:Median(nums)
     endif
 endfunction
 
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+
 let mapleader=","
 
 if has("gui_running")
@@ -274,6 +287,7 @@ let g:ragtag_global_maps = 1
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 let g:syntastic_disabled_filetypes = ['cpp']
+
 
 "key mapping for vimgrep result navigation
 map <A-o> :copen<CR>
