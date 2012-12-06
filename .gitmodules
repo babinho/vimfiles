@@ -150,3 +150,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = https://github.com/asux/snipmate-snippets.git
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
