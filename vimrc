@@ -421,5 +421,6 @@ let g:user_zen_settings = {
       \  },
       \}
 
-" when press { + Enter, the {} block will expand.
-"imap {<CR> {}<ESC>i<CR><ESC>O}
+match ExtraWhiteSpace /\s\+$\| \+\ze\t/
+autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
+
