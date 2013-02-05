@@ -420,7 +420,7 @@ let g:user_zen_settings = {
       \    'extends' : 'html',
       \  },
       \}
+this is purple
 
-match ExtraWhiteSpace /\s\+$\| \+\ze\t/
-autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
-
+whitespace
+no
