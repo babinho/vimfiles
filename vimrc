@@ -224,9 +224,7 @@ let mapleader=","
 if has("gui_running")
     set t_Co=256
     set guitablabel=%M%t
-    "colorscheme xoria256
-    colorscheme molokai
-    "colorscheme mac_classic
+    colorscheme Tomorrow-Night-Eighties
 
     if has("gui_gnome")
         set guifont=Source\ Code\ Pro\ 11
@@ -251,7 +249,7 @@ else
     if has("gui")
         set t_Co=256
         set guitablabel=%M%t
-        colorscheme molokai
+        colorscheme Tomorrow-Night-Eighties
     endif
 endif
 
@@ -420,7 +418,3 @@ let g:user_zen_settings = {
       \    'extends' : 'html',
       \  },
       \}
-this is purple
-
-whitespace
-no
