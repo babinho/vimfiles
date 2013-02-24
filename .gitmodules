@@ -158,6 +158,3 @@
 [submodule "bundle/vim-bad-whitespace"]
 	path = bundle/vim-bad-whitespace
 	url = https://github.com/bitc/vim-bad-whitespace
-[submodule "bundle/vim-ruby-conque"]
-	path = bundle/vim-ruby-conque
-	url = https://github.com/skwp/vim-ruby-conque.git
