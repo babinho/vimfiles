@@ -152,3 +152,6 @@
 [submodule "bundle/vim-bad-whitespace"]
 	path = bundle/vim-bad-whitespace
 	url = https://github.com/bitc/vim-bad-whitespace
+[submodule "bundle/vim-rbenv"]
+	path = bundle/vim-rbenv
+	url = git://github.com/tpope/vim-rbenv.git
