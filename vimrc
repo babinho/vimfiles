@@ -224,10 +224,10 @@ let mapleader=","
 if has("gui_running")
     set t_Co=256
     set guitablabel=%M%t
-    colorscheme Tomorrow-Night-Eighties
+    colorscheme vividchalk
 
     if has("gui_gnome")
-        set guifont=Source\ Code\ Pro\ 11
+        set guifont=Source\ Code\ Pro\ 10
     endif
     if has("gui_mac") || has("gui_macvim")
         set lines=50
@@ -249,8 +249,9 @@ else
     if has("gui")
         set t_Co=256
         set guitablabel=%M%t
-        colorscheme Tomorrow-Night-Eighties
+        colorscheme vividchalk
     endif
+    colorscheme vividchalk
 endif
 
 "Powerline
