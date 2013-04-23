@@ -224,7 +224,7 @@ let mapleader=","
 if has("gui_running")
     set t_Co=256
     set guitablabel=%M%t
-    colorscheme vividchalk
+    colorscheme dark-ruby
 
     if has("gui_gnome")
         set guifont=Source\ Code\ Pro\ 10
@@ -249,9 +249,8 @@ else
     if has("gui")
         set t_Co=256
         set guitablabel=%M%t
-        colorscheme vividchalk
     endif
-    colorscheme vividchalk
+    colorscheme dark-ruby
 endif
 
 "Powerline
@@ -389,6 +388,9 @@ au BufRead,BufNew *.rb map <F5> :!ruby % <CR>
 " Make XML pretty
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 nmap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
+
+" show simplecov for file
+nmap <leader>c :so coverage.vim
 
 " ruby hashrocket replace
 nmap rs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g <CR>
