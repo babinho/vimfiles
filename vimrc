@@ -390,7 +390,7 @@ au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 nmap <leader>xml :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 
 " show simplecov for file
-nmap <leader>c :so coverage.vim
+nmap <leader>c :so coverage.vim<CR>
 
 " ruby hashrocket replace
 nmap rs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g <CR>
