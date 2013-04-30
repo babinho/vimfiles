@@ -224,7 +224,7 @@ let mapleader=","
 if has("gui_running")
     set t_Co=256
     set guitablabel=%M%t
-    colorscheme dark-ruby
+    colorscheme molokai
 
     if has("gui_gnome")
         set guifont=Source\ Code\ Pro\ 10
@@ -232,8 +232,8 @@ if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
         set lines=50
         set columns=105
-        set guifont=Monaco:h14
-        "set guifont=Menlo:h14
+        " set guifont=Monaco:h14
+        set guifont=Menlo:h14
         " make Mac's Option key behave as the Meta key
         set invmmta
         " comma as the leader key
@@ -250,7 +250,7 @@ else
         set t_Co=256
         set guitablabel=%M%t
     endif
-    colorscheme dark-ruby
+    colorscheme molokai
 endif
 
 "Powerline
